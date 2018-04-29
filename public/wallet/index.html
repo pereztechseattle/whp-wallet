@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Inova</title>
+        <!--    favicon-->
+        <link rel="shortcut icon" href="image/faveicon.png" type="image/x-icon">
+        
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="vendors/themify-icon/themify-icons.css">
+        <!-- strock-Gap-icon -->
+        <link rel="stylesheet" href="vendors/linear-icon/style.css">
+        <!-- magnific popup-->
+        <link rel="stylesheet" href="vendors/magnific-popup/magnific-popup.css">
+        <!--        owl carousel css-->
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/animate.css">
+        <!-- RS5.0 Main Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="vendors/revolution/css/settings.css">
+
+        <!-- RS5.0 Layers and Navigation Styles -->
+        <link rel="stylesheet" type="text/css" href="vendors/revolution/css/layers.css">
+        <link rel="stylesheet" type="text/css" href="vendors/revolution/css/navigation.css">
+        <!--    css-->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!--responsive css-->
+        <link rel="stylesheet" href="css/responsive.css">
+        <!--color css-->
+        <link rel="stylesheet" id="triggerColor" href="css/triggerPlate/color-0.css">
+        
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/7.0.1/bignumber.min.js"></script>
+        <script type="text/javascript" src="/js/web3.min.js"></script>
+        <script type="text/javascript" src="/js/truffle-contract.min.js"></script>
+        <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+
+        <script type="text/javascript" src="/js/lightwallet.min.js"></script>
+
+        <script type="text/javascript" src="/js/wallet.js"></script>            
+        <script type="text/javascript" src="/js/app.js"></script>
+    </head>
+    <body data-scroll-animation="true">
+        <!--start preloader area-->
+        <div class="loader-container circle-pulse-multiple">
+			<div class="loader">
+				<div id="loading-center-absolute">
+                    <div class="object" id="object_four"></div>
+                    <div class="object" id="object_three"></div>
+                    <div class="object" id="object_two"></div>
+                    <div class="object" id="object_one"></div>
+                </div>
+			</div>
+		</div>
+       <!--End preloader area-->
+       <!--Start searchForm -->
+        <!-- End searchForm -->
+        <!-- Start color-plate -->
+        <!-- End color-plate -->
+        <!--start header Area-->
+        <!--End header Area-->
+        <!--Start slide-banner -->
+        <section class="slide-banner" id="home">
+            <div class="container">
+                <div class="lrg-text">
+                    <div class="content">
+                        <h2>Custom <span>WHP</span> ERC827 Wallet</h2>
+                        <p>Use the generated 12 word seed to create a new wallet, or enter your own seed to recover an existing wallet.</p>
+                        <h3 id="info"></h3>
+                        <form id="seedForm" class="" method="post">
+                            <div class="input-group">
+                                <input type="text" id="seed" name="seed" class="form-control memail" placeholder="12 word seed">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-submit" type="submit">go</button>
+                                </span>
+                            </div>
+                            <p class="mchimp-errmessage"></p>
+                            <p class="mchimp-sucmessage"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End slide-banner -->
+        <!--Start pricing area -->
+        <section class="pricing-area" id="price">
+            <div class="container">
+                <div class="section-title">
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed consequuntur magni dolores ratione voluptatem sequi nesciunt.</p>
+                </div>
+                <ul class="nav nav-tabs price-tab" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#price-1" aria-controls="price-1" role="tab" data-toggle="tab">Send <i class="ti-arrow-top-right"></i></a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#price-2" aria-controls="price-2" role="tab" data-toggle="tab">Receive <i class="ti-arrow-down"></i></a>
+                    </li>
+                </ul>
+                <div class="tab-content priceing-tab">
+                    <div role="tabpanel" class="row tab-pane active" id="price-1">
+                        <div class="col-md-6 col-sm-6 price wow fadeIn">
+                            <div class="pricing-box">
+                                <div class="pricing-header">
+                                    <h2>WHP Token</h2>
+                                    <h3 class="packeg_typ"><span></span><div id="whp-balance-big" style="display:inline"></div><small> WHP</small></h3>
+                                </div>
+                                <ul class="list-unstyled plan-lists">
+                                    <li>Bal: <span id="whp-balance"></span></li>
+                                </ul>
+                                <form id="sendForm" style="margin:0 10%">
+                                    <div class="form-group">
+                                        <label for="fromAddress">Select From Address</label>
+                                        <select class="form-control" id="fromAddress">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="amount">How much <span class="symbol"></span> do you want to send?</label>
+                                        <input type="text" class="form-control" id="amount" placeholder="99.0009">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="amount">Send To Address</label>
+                                            <input type="text" class="form-control" id="toAddressInput" placeholder="Begins with 0x">
+                                        </div>
+                                </form>
+                                <a href="#" class="purchase-btn">Send WHP</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 price wow fadeIn" data-wow-delay="0.7s">
+                            <div class="pricing-box">
+                                <div class="pricing-header">
+                                    <h2>Ether</h2>
+                                    <h3 class="packeg_typ"><span></span>0<small> ETH</small></h3>
+                                </div>
+                                <ul class="list-unstyled plan-lists">
+                                    <li>Bal: <span id="eth-balance"></span></li>
+                                </ul>
+                                <form id="sendForm" style="margin:0 10%">
+                                    <div class="form-group">
+                                        <label for="fromAddressEth">Select From Address</label>
+                                        <select class="form-control" id="fromAddressEth">
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="amountEth">How much <span class="symbol"></span> do you want to send?</label>
+                                        <input type="text" class="form-control" id="amountEth" placeholder="99.0009">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="amountEth">Send To Address</label>
+                                        <input type="text" class="form-control" id="toAddressEthInput" placeholder="Begins with 0x">
+                                    </div>
+                                </form>
+                                <a href="#" class="purchase-btn">Send ETH</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane tab2" id="price-2">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 price">
+                                <div class="pricing-box">
+                                    <div class="pricing-header">
+                                        <h2>Free</h2>
+                                        <h3 class="packeg_typ"><span>$</span>49<small> Lifetime</small></h3>
+                                    </div>
+                                    <ul class="list-unstyled plan-lists">
+                                        <li>Unlimited User</li>
+                                        <li>Unlimited ui elements</li>
+                                        <li>E-mail support</li>
+                                    </ul>
+                                    <a href="#" class="try">Try Now</a>
+                                    <a href="#" class="purchase-btn">Purchase</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 price">
+                                <div class="pricing-box active">
+                                    <div class="pricing-header">
+                                        <div class="tag">popular</div>
+                                        <h2>Professional</h2>
+                                        <h3 class="packeg_typ"><span>$</span>99<small> Lifetime</small></h3>
+                                    </div>
+                                    <ul class="list-unstyled plan-lists">
+                                        <li>Unlimited User</li>
+                                        <li>Unlimited ui elements</li>
+                                        <li>E-mail support</li>
+                                    </ul>
+                                    <a href="#" class="try">Try Now</a>
+                                    <a href="#" class="purchase-btn">Purchase</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 price">
+                                <div class="pricing-box">
+                                    <div class="pricing-header">
+                                        <h2>Business</h2>
+                                        <h3 class="packeg_typ"><span>$</span>299<small> Lifetime</small></h3>
+                                    </div>
+                                    <ul class="list-unstyled plan-lists">
+                                        <li>Unlimited User</li>
+                                        <li>Unlimited ui elements</li>
+                                        <li>E-mail support</li>
+                                    </ul>
+                                    <a href="#" class="try">Try Now</a>
+                                    <a href="#" class="purchase-btn">Purchase</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End pricing area -->
+        <!-- start compare area -->
+        <section class="compare-area bg-color" id="accounts">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Compare our plans</h2>
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed consequuntur magni dolores ratione voluptatem sequi nesciunt.</p>
+                </div>
+                <div class="compare-table-are table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-3">Features</th>
+                                <th class="col-sm-3 text-center">Free</th>
+                                <th class="col-sm-3 text-center">Professional</th>
+                                <th class="col-sm-3 text-center">Business</th>
+                            </tr>
+                        </thead>
+                        <tbody id="list">
+                            <tr>
+                                <td>Users</td>
+                                <td class="text-center">Free</td>
+                                <td class="text-center">Premium</td>
+                                <td class="text-center">Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Email Support</td>
+                                <td class="text-center"><i class="ti-check"></i></td>
+                                <td class="text-center"><i class="ti-check"></i></td>
+                                <td class="text-center"><i class="ti-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Phone Support</td>
+                                <td class="text-center"><i class="ti-close"></i></td>
+                                <td class="text-center"><i class="ti-check"></i></td>
+                                <td class="text-center"><i class="ti-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Chat Support</td>
+                                <td class="text-center"><i class="ti-close"></i></td>
+                                <td class="text-center"><i class="ti-close"></i></td>
+                                <td class="text-center"><i class="ti-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td class="text-center price">$0</td>
+                                <td class="text-center price">$49</td>
+                                <td class="text-center price">$99</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="text-center">
+                                    <a href="#" class="try">Try Now</a>
+                                    <a href="#" class="purchase-btn">Purchase</a>
+                                </td>
+                                <td class="text-center">
+                                    <a href="#" class="try">Try Now</a>
+                                    <a href="#" class="purchase-btn">Purchase</a>
+                                </td>
+                                <td class="text-center">
+                                    <a href="#" class="try">Try Now</a>
+                                    <a href="#" class="purchase-btn">Purchase</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <!-- End compare area -->
+        
+        <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!--waypoint js-->
+        <script type="text/javascript" src="vendors/waypoints/waypoints.min.js"></script>
+        <!--nav js-->
+        <script type="text/javascript" src="js/jquery-nav.js"></script>
+        <!--counterup js-->
+        <script type="text/javascript" src="vendors/counterup/jquery.counterup.min.js"></script>
+        <script type="text/javascript" src="js/jquery.stellar.js"></script>
+        <!-- RS5.0 Core JS Files -->
+        <script type="text/javascript" src="vendors/owl-carousel/owl.carousel.min.js"></script>
+        <!--magnific js-->
+        <script type="text/javascript" src="vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="js/plugins.js"></script>
+        <!-- REVOLUTION JS FILES -->
+		<script type="text/javascript" src="vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+		<script type="text/javascript" src="vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="vendors/revolution/revolution-addons/countdown/revolution.addon.countdown.min.js"></script>
+        <script type="text/javascript" src="vendors/revolution/revolution-addons/typewriter/js/revolution.addon.typewriter.min.js"></script>
+		<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->	
+		<script type="text/javascript" src="vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+		<script type="text/javascript" src="vendors/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+		<script type="text/javascript" src="vendors/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+		<script type="text/javascript" src="vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+		<script type="text/javascript" src="vendors/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+		<script type="text/javascript" src="vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+		<script type="text/javascript" src="vendors/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+		<script type="text/javascript" src="vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+		<script type="text/javascript" src="vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+        <!--wow js-->
+        <script type="text/javascript" src="js/wow.min.js"></script>
+        <!--custom js -->
+        <script type="text/javascript" src="js/custom.js"></script>
+    </body>
+</html>

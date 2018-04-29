@@ -2,6 +2,7 @@ App = {
   web3Provider: null,
   contracts: {},
   results: {},
+  whpBalance: 0,
 
   contractBalance: 0,
 
@@ -59,6 +60,13 @@ App = {
         $('.symbol').html(res);
       });
 
+      let addy = web3.eth.accounts;
+      App.contracts.WHPToken.balanceOf(addy, function (err, res) {
+        App.whpBalance = new BigNumber(res).div(10 ** 18);
+        document.getElementById("whp-balance").innerHTML = App.whpBalance.toString();
+        document.getElementById("whp-balance-big").innerHTML = App.whpBalance.toFormat(2);
+      });
+
       return true
     })
 
@@ -68,20 +76,22 @@ App = {
   bindEvents: function () {
     // $(document).on('click', '#playImage', App.executeBet)
 
-    var accounts = web3.eth.accounts;
-    console.log('accounts: ' + accounts);
+    App.accounts = web3.eth.accounts;
+    console.log('accounts: ' + App.accounts);
 
-    var html = "";
+    App.updateFromAddresses();
 
-    for (var count = 0; count < accounts.length; count++) {
-      html = html + "<option>" + accounts[count] + "</option>";
-    }
+    // document.getElementById("toAddress").innerHTML = html;
+    // document.getElementById("address").innerHTML = html;
 
-    document.getElementById("fromAddress").innerHTML = html;
-    document.getElementById("toAddress").innerHTML = html;
-    document.getElementById("address").innerHTML = html;
+    document.getElementById("seedForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    // App.contracts.WHPToken.detectNetwork();
+      generate_addresses(document.getElementById("seed").value);
+
+      $("#home").hide();
+      $("#price").show();
+    })
 
     document.getElementById("sendForm").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -96,40 +106,36 @@ App = {
       App.contracts.WHPToken.transfer(toAddress, unitValue, opts, function (err, res) {
         alert("Transaction mined successfully. Txn Hash: " + res);
       });
-
-      // return instance.transfer(document.getElementById("toAddress").value, document.getElementById("amount").value, {
-      //   from: document.getElementById("fromAddress").options[document.getElementById("fromAddress").selectedIndex].value
-      // }).then(function (result) {
-      //   alert("Transaction mined successfully. Txn Hash: " + result.tx);
-      // }).catch(function (e) {
-      //   alert("An error occured");
-      // })
     })
+    
+    // document.getElementById("contractBalanceForm").addEventListener("submit", function (e) {
+    //   e.preventDefault();
 
-    document.getElementById("findBalanceForm").addEventListener("submit", function (e) {
-      e.preventDefault();
+    //   let instance = App.contracts.WHPToken;
+    //   let owner = '0xE88915Ae42F77EBc12c0cF53Ffaffc495eD8F756';
 
-      let instance = App.contracts.WHPToken;
+    //   instance.balanceOf(owner, function (err, res) {
+    //     let balance = new BigNumber(res).div(10 ** 18);
+    //     alert("Remaining Supply is: " + balance.toFormat(18) + " WHP");
+    //   });
+    // })
 
-      instance.balanceOf(document.getElementById("address").value, function (err, res) {
-        let balance = new BigNumber(res).div(10 ** 18);
-        alert("Balance is: " + balance + " WHP");
-      });
-    })
+    return App.generateKeys();
+  },
 
-    document.getElementById("contractBalanceForm").addEventListener("submit", function (e) {
-      e.preventDefault();
+  generateKeys: function () {
+    generate_seed();
+  },
 
-      let instance = App.contracts.WHPToken;
-      let owner = '0xE88915Ae42F77EBc12c0cF53Ffaffc495eD8F756';
-
-      instance.balanceOf(owner, function (err, res) {
-        let balance = new BigNumber(res).div(10 ** 18);
-        alert("Remaining Supply is: " + balance.toFormat(18) + " WHP");
-      });
-    })
-
-    return true;
+  updateFromAddresses: function (addys) {
+    alert(addys);
+    App.addresses = addys;
+    
+    var html = "";
+    for (var count = 0; count < App.accounts.length; count++) {
+      html = html + "<option>" + App.accounts[count] + "</option>";
+    }
+    document.getElementById("fromAddress").innerHTML = html;
   },
 
   // updateBalance: function () {
