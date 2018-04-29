@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/7.0.1/bignumber.min.js"></script>
+	<script type="text/javascript" src="/js/web3.min.js"></script>
+	<script type="text/javascript" src="/js/truffle-contract.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/wallet.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<br>
+				<h2>Send <span class="symbol"></span></h2>
+				<hr>
+				<form id="sendForm">
+					<div class="form-group">
+						<label for="fromAddress">Select From Address</label>
+						<select class="form-control" id="fromAddress">
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="amount">How much <span class="symbol"></span> do you want to send?</label>
+						<input type="text" class="form-control" id="amount">
+					</div>
+					<div class="form-group">
+						<label for="toAddress">Select To Address</label>
+						<select class="form-control" id="toAddress">
+						</select>
+						<label for="amount">Or Enter To Address</label>
+						<input type="text" class="form-control" id="toAddressInput">
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<br>
+				<h2>Find Balance</h2>
+				<hr>
+				<form id="findBalanceForm">
+					<div class="form-group">
+						<label for="address">Select Account Address</label>
+						<select class="form-control" id="address">
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary">Check Balance</button>
+				</form>
+				<hr>
+				<form id="contractBalanceForm">
+					<button type="submit" class="btn btn-primary">Check Remaining Supply</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

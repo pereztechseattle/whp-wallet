@@ -1,0 +1,35 @@
+{
+  "name": "whp-wallet",
+  "version": "0.1.0",
+  "description": "This is just a proof of concept or demo.",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pereztechseattle/whp-wallet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pereztechseattle/whp-wallet/issues"
+  },
+  "homepage": "https://github.com/pereztechseattle/whp-wallet#readme",
+  "dependencies": {
+    "body-parser": "^1.1.2",
+    "errorhandler": "^1.0.1",
+    "express": "^4.1.2",
+    "method-override": "^1.0.0",
+    "standard": "^11.0.1",
+    "truffle-contract": "^3.0.4",
+    "web3": "^1.0.0-beta.31"
+  },
+  "bin": {
+    "simple-server": "./start.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  }
+}
