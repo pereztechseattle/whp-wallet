@@ -48,8 +48,9 @@
         <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 
         <script type="text/javascript" src="/js/lightwallet.min.js"></script>
+        <script type="text/javascript" src="/js/ethjs-provider-signer.min.js"></script>
 
-        <script type="text/javascript" src="/js/wallet.js"></script>            
+        <script type="text/javascript" src="/js/wallet.js"></script>        
         <script type="text/javascript" src="/js/app.js"></script>
     </head>
     <body data-scroll-animation="true">
@@ -72,11 +73,11 @@
         <!--start header Area-->
         <!--End header Area-->
         <!--Start slide-banner -->
-        <section class="slide-banner" id="home">
+        <!-- <section class="slide-banner" id="home">
             <div class="container">
                 <div class="lrg-text">
                     <div class="content">
-                        <h2>Custom <span>WHP</span> ERC827 Wallet</h2>
+                        <h2><span>WHP</span> Custom ERC827 Wallet</h2>
                         <p>Use the generated 12 word seed to create a new wallet, or enter your own seed to recover an existing wallet.</p>
                         <h3 id="info"></h3>
                         <form id="seedForm" class="" method="post">
@@ -92,12 +93,13 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!--End slide-banner -->
         <!--Start pricing area -->
         <section class="pricing-area" id="price">
             <div class="container">
                 <div class="section-title">
+                    <h2>WPH Custom ERC827 Wallet</h2>
                     <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed consequuntur magni dolores ratione voluptatem sequi nesciunt.</p>
                 </div>
                 <ul class="nav nav-tabs price-tab" role="tablist">
@@ -110,17 +112,19 @@
                 </ul>
                 <div class="tab-content priceing-tab">
                     <div role="tabpanel" class="row tab-pane active" id="price-1">
-                        <div class="col-md-6 col-sm-6 price wow fadeIn">
+                        <div class="col-md-3 col-sm-2"></div>
+                        <div class="col-md-6 col-sm-8 price wow fadeIn">
                             <div class="pricing-box">
                                 <div class="pricing-header">
-                                    <h2>WHP Token</h2>
+                                    <h2>Balance</h2>
                                     <h3 class="packeg_typ"><span></span><div id="whp-balance-big" style="display:inline"></div><small> WHP</small></h3>
                                 </div>
                                 <ul class="list-unstyled plan-lists">
-                                    <li>Bal: <span id="whp-balance"></span></li>
+                                    <li>Your Address: <span id="whp-address"></span></li>
+                                    <li style="display: none">Balance: <span id="whp-balance"></span></li>
                                 </ul>
                                 <form id="sendForm" style="margin:0 10%">
-                                    <div class="form-group">
+                                    <div class="form-group" style="display:none">
                                         <label for="fromAddress">Select From Address</label>
                                         <select class="form-control" id="fromAddress">
                                         </select>
@@ -130,40 +134,14 @@
                                         <input type="text" class="form-control" id="amount" placeholder="99.0009">
                                     </div>
                                     <div class="form-group">
-                                            <label for="amount">Send To Address</label>
-                                            <input type="text" class="form-control" id="toAddressInput" placeholder="Begins with 0x">
-                                        </div>
+                                        <label for="amount">Send To Address</label>
+                                        <input type="text" class="form-control" id="toAddressInput" placeholder="Begins with 0x">
+                                    </div>
+                                    <button type="submit" href="#" class="purchase-btn">Send WHP</button>
                                 </form>
-                                <a href="#" class="purchase-btn">Send WHP</a>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6 price wow fadeIn" data-wow-delay="0.7s">
-                            <div class="pricing-box">
-                                <div class="pricing-header">
-                                    <h2>Ether</h2>
-                                    <h3 class="packeg_typ"><span></span>0<small> ETH</small></h3>
-                                </div>
-                                <ul class="list-unstyled plan-lists">
-                                    <li>Bal: <span id="eth-balance"></span></li>
-                                </ul>
-                                <form id="sendForm" style="margin:0 10%">
-                                    <div class="form-group">
-                                        <label for="fromAddressEth">Select From Address</label>
-                                        <select class="form-control" id="fromAddressEth">
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="amountEth">How much <span class="symbol"></span> do you want to send?</label>
-                                        <input type="text" class="form-control" id="amountEth" placeholder="99.0009">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="amountEth">Send To Address</label>
-                                        <input type="text" class="form-control" id="toAddressEthInput" placeholder="Begins with 0x">
-                                    </div>
-                                </form>
-                                <a href="#" class="purchase-btn">Send ETH</a>
-                            </div>
-                        </div>
+                        <div class="col-md-3 col-sm-2"></div>
                     </div>
                     <div role="tabpanel" class="tab-pane tab2" id="price-2">
                         <div class="row">
@@ -219,75 +197,6 @@
             </div>
         </section>
         <!--End pricing area -->
-        <!-- start compare area -->
-        <section class="compare-area bg-color" id="accounts">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Compare our plans</h2>
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed consequuntur magni dolores ratione voluptatem sequi nesciunt.</p>
-                </div>
-                <div class="compare-table-are table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="col-sm-3">Features</th>
-                                <th class="col-sm-3 text-center">Free</th>
-                                <th class="col-sm-3 text-center">Professional</th>
-                                <th class="col-sm-3 text-center">Business</th>
-                            </tr>
-                        </thead>
-                        <tbody id="list">
-                            <tr>
-                                <td>Users</td>
-                                <td class="text-center">Free</td>
-                                <td class="text-center">Premium</td>
-                                <td class="text-center">Unlimited</td>
-                            </tr>
-                            <tr>
-                                <td>Email Support</td>
-                                <td class="text-center"><i class="ti-check"></i></td>
-                                <td class="text-center"><i class="ti-check"></i></td>
-                                <td class="text-center"><i class="ti-check"></i></td>
-                            </tr>
-                            <tr>
-                                <td>Phone Support</td>
-                                <td class="text-center"><i class="ti-close"></i></td>
-                                <td class="text-center"><i class="ti-check"></i></td>
-                                <td class="text-center"><i class="ti-check"></i></td>
-                            </tr>
-                            <tr>
-                                <td>Chat Support</td>
-                                <td class="text-center"><i class="ti-close"></i></td>
-                                <td class="text-center"><i class="ti-close"></i></td>
-                                <td class="text-center"><i class="ti-check"></i></td>
-                            </tr>
-                            <tr>
-                                <td>Price</td>
-                                <td class="text-center price">$0</td>
-                                <td class="text-center price">$49</td>
-                                <td class="text-center price">$99</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td class="text-center">
-                                    <a href="#" class="try">Try Now</a>
-                                    <a href="#" class="purchase-btn">Purchase</a>
-                                </td>
-                                <td class="text-center">
-                                    <a href="#" class="try">Try Now</a>
-                                    <a href="#" class="purchase-btn">Purchase</a>
-                                </td>
-                                <td class="text-center">
-                                    <a href="#" class="try">Try Now</a>
-                                    <a href="#" class="purchase-btn">Purchase</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-        <!-- End compare area -->
         
         <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
