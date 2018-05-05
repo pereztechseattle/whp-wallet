@@ -100,8 +100,6 @@ App = {
     // })
 
     $('#deposit').click(function (e) {
-      alert('deposit clicked');
-
       // TODO hide this
       let signerProvider = new SignerProvider('https://ropsten.infura.io/KFE5TYWb91ldXs1crzLl', {
         signTransaction: (rawTx, cb) => cb(null, SignerProvider.sign(rawTx, '0x6d86243a79ed65d5304cee11001b739117b06afe8fe5787002d76352a7d857e4')),
@@ -132,12 +130,7 @@ App = {
     whpBalance: 0,
 
     render: function () {
-      var html = "";
-      for (var count = 0; count < App.accounts.length; count++) {
-        html = html + "<option>" + App.accounts[count] + "</option>";
-      }
-
-      document.getElementById("fromAddress").innerHTML = html;
+      alert('render')
 
       document.getElementById("whp-address").innerHTML = web3.eth.defaultAccount;
 
